@@ -1,0 +1,30 @@
+@mixin font-face($name, $path, $weight) {
+  @font-face {
+    font-family: $name;
+    src: url($path) format("truetype");
+    font-weight: $weight;
+  }
+}
+
+@mixin transition-fade {
+  opacity: 1;
+  transition: 0.8s;
+  transform: translateY(0);
+}
+
+@mixin transition-fade-out {
+  opacity: 0;
+  transform: translateY(-10%);
+}
+
+@mixin vertical-text {
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  text-decoration: none;
+  color: $color-text;
+  font-size: 18px;
+  font-weight: bold;
+  margin: 1rem 0;
+  position: relative;
+  transition-duration: 0.3s;
+}

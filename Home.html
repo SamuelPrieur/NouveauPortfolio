@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://unpkg.com/split-type"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+    <title>Samuel Prieur</title>
+
+    <link rel="stylesheet" type="text/css" href="style.css" />
+  </head>
+  <body>
+    <nav class="sidebar">
+      <div class="social-links">
+        <a id="f" class="hiddenN" href="https://www.linkedin.com/in/samuel-prieur/" target="_blank">in</a>
+        <a id="e" class="hiddenN" href="https://github.com/SamuelPrieur" target="_blank">git</a>
+      </div>
+      <hr class="vertical-line" />
+      <ul>
+        <li><a id="d" class="hiddenN" href="Work.html">Work.</a></li>
+        <li><a id="c" class="hiddenN" href="About.html">About.</a></li>
+        <li><a id="b" class="hiddenN" href="Contact.html">Contact.</a></li>
+      </ul>
+      <a id="a" href="Home.html" class="name hiddenN">Sam.</a>
+    </nav>
+    <div class="container">
+      <main id="swup" class="content transition-fade">
+        <div class="text-and-image">
+          <h1 class="textHeading" id="textHeading">
+            My name is Samuel Prieur. I'm a
+            <strong>web developer</strong> student based in France. Currently in Canada for my senior year.
+          </h1>
+
+          <div class="holder">
+            <img class="portrait" id="portrait" src="img/portrait.webp" alt="" />
+          </div>
+        </div>
+      </main>
+      <p class="DateHour">GMT+2 (<strong id="Hour"></strong>, PARIS)</p>
+    </div>
+
+    <script src="https://unpkg.com/swup@4"></script>
+    <script>
+      function init() {
+        const textHeading = new SplitType("#textHeading");
+        gsap.to(".word", {
+          y: 0,
+          stagger: 0.05,
+          delay: 0,
+          duration: 0.5,
+        });
+      }
+
+      const swup = new Swup();
+
+      if (document.readyState === "complete") {
+        init();
+      } else {
+        document.addEventListener("DOMContentLoaded", init);
+      }
+
+      swup.hooks.on("page:view", init);
+
+      function afficherHour() {
+        let now = new Date();
+        let options = {
+          timeZone: "Europe/Paris",
+          hour: "2-digit",
+          minute: "2-digit",
+          hour12: true,
+        };
+        let hourParis = now.toLocaleTimeString("en-US", options);
+        document.getElementById("Hour").textContent = hourParis;
+      }
+      window.onload = function () {
+        afficherHour();
+        setInterval(afficherHour, 1000);
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("showN");
+          }
+        });
+      });
+      const ShowAnim = document.querySelectorAll(".hiddenN");
+      ShowAnim.forEach((el) => observer.observe(el));
+    </script>
+  </body>
+</html>

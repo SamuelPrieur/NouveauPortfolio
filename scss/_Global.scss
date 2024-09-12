@@ -1,0 +1,193 @@
+@include font-face(
+  "PPNeue Montreal Light",
+  "font/PPNeueMontreal-Light.otf",
+  300
+);
+@include font-face(
+  "PPNeue Montreal Regular",
+  "font/PPNeueMontreal-Regular.otf",
+  400
+);
+@include font-face("PPNeue Montreal Bold", "font/PPNeueMontreal-Bold.otf", 600);
+
+body {
+  margin: 0;
+  font-family: $font-bold;
+  background-color: $color-background;
+  color: $color-text;
+  display: flex;
+  height: 100vh;
+}
+
+.transition-fade {
+  @include transition-fade;
+}
+
+html.is-animating .transition-fade,
+html.is-leaving .transition-fade {
+  @include transition-fade-out;
+}
+
+@keyframes drawBorder {
+  0% {
+    height: 0;
+    bottom: 0;
+  }
+  100% {
+    height: 100%;
+    bottom: 0;
+  }
+}
+
+@keyframes drawVerticalLine {
+  0% {
+    height: 0;
+    bottom: 0;
+  }
+  100% {
+    height: 6rem;
+    bottom: 0;
+  }
+}
+
+.sidebar {
+  z-index: 10000;
+  width: 3.5rem;
+  font-family: $font-regular;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  margin: 2rem 0;
+
+  .social-links {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+
+    a {
+      writing-mode: vertical-rl;
+      text-orientation: mixed;
+      text-decoration: none;
+      color: $color-text;
+      font-size: 18px;
+      font-weight: bold;
+      margin: 1rem 0;
+      position: relative;
+      transition-duration: 0.3s;
+    }
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+
+    li a {
+      writing-mode: vertical-rl;
+      text-orientation: mixed;
+      text-decoration: none;
+      color: $color-text;
+      font-size: 18px;
+      font-weight: bold;
+      margin: 1rem 0;
+      position: relative;
+      transition-duration: 0.3s;
+    }
+  }
+
+  .name {
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+    text-decoration: none;
+    color: $color-text;
+    font-size: 18px;
+    font-weight: bold;
+    margin: 1rem 0;
+    position: relative;
+    transition-duration: 0.5s;
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 1px;
+    height: 0;
+    background-color: $color-text;
+    animation: drawBorder 1s ease-in-out forwards;
+  }
+}
+
+.vertical-line {
+  width: 1px;
+  height: 0;
+  background-color: $color-text;
+  border: none;
+  margin: 1rem 0;
+  position: relative;
+  animation: drawVerticalLine 0.25s ease-in-out 0.5s forwards;
+}
+
+strong {
+  color: $color-highlight;
+}
+
+#a {
+  transition-delay: 600ms;
+}
+#b {
+  transition-delay: 800ms;
+}
+#c {
+  transition-delay: 1000ms;
+}
+#d {
+  transition-delay: 1200ms;
+}
+#e {
+  transition-delay: 1400ms;
+}
+#f {
+  transition-delay: 1600ms;
+}
+
+.hiddenN {
+  opacity: 0;
+  transform: translateX(-50%);
+  animation-duration: 0.5s;
+  &.showN {
+    opacity: 1;
+    transform: translateX(0%);
+  }
+}
+
+/* ------------------------------------ Text Apparition -------------------------------------------*/
+
+.line {
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+}
+.word {
+  transform: translateY(10rem);
+  transition: transform 0.5s;
+}
+
+/* ----------------------------------------- Hour -------------------------------------------------*/
+
+.DateHour {
+  font-family: $font-regular;
+  position: fixed;
+  bottom: 0;
+  right: 1rem;
+}

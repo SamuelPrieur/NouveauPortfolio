@@ -1,0 +1,49 @@
+.container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.content {
+  padding: 0 5rem 0 7.5rem;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 2rem;
+  justify-content: center;
+  align-items: center;
+
+  .AboutHeading {
+    font-size: calc(50 * calc(0.01 * 10vmin));
+    grid-column: 1/ 2;
+    font-weight: 400;
+    margin: 0;
+  }
+
+  .text-and-image {
+    display: contents;
+  }
+
+  .holder {
+    overflow: hidden;
+    width: 100%;
+    grid-column: 2 / 3;
+
+    .portrait {
+      width: 100%;
+      animation: fadeInScale 1s ease-in-out forwards;
+      opacity: 0;
+    }
+
+    @keyframes fadeInScale {
+      0% {
+        opacity: 0;
+        transform: scale(1.1);
+      }
+      100% {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+  }
+}
