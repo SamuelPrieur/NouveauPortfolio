@@ -24,134 +24,53 @@
       <a id="a" href="Index.html" class="name hiddenN">Sam.</a>
     </nav>
     <div class="container">
-      <main id="swup" class="content transition-fade">
-        <h1 class="textHeading" id="textHeading"><strong>Project</strong> Selection.</h1>
+      <main id="swup" class="contentWork transition-fade">
         <ul>
+          <hr class="PjLineBF" />
           <li class="project">
-            <div>
+            <a id="pj1" href="">
               <span class="project__number Projects">01.</span>
-              <h2 class="Projects">Title</h2>
-              <h2 class="Projects">Tools</h2>
-              <h2 class="Projects">Date</h2>
-            </div>
+              <h2 class="Projects">My Old Portfolio</h2>
+              <h2 class="Projects">NextJs</h2>
+              <h2 class="Projects">2023</h2>
+            </a>
           </li>
+          <hr class="PjLineBF" />
           <li class="project">
-            <div>
+            <a id="pj2" href="">
               <span class="project__number Projects">02.</span>
-              <h2 class="Projects">Title</h2>
-              <h2 class="Projects">Tools</h2>
-              <h2 class="Projects">Date</h2>
-            </div>
+              <h2 class="Projects">DashBoard</h2>
+              <h2 class="Projects">ChartJs</h2>
+              <h2 class="Projects">2023</h2>
+            </a>
           </li>
+          <hr class="PjLineBF" />
           <li class="project">
-            <div>
+            <a id="pj3" href="">
               <span class="project__number Projects">03.</span>
-              <h2 class="Projects">Title</h2>
-              <h2 class="Projects">Tools</h2>
-              <h2 class="Projects">Date</h2>
-            </div>
+              <h2 class="Projects">Cinema Terminal</h2>
+              <h2 class="Projects">HTML/CSS</h2>
+              <h2 class="Projects">2024</h2>
+            </a>
           </li>
-
+          <hr class="PjLineBF" />
           <li class="project">
-            <div>
+            <a id="pj4" href="">
               <span class="project__number Projects">04.</span>
-              <h2 class="Projects">Title</h2>
-              <h2 class="Projects">Tools</h2>
-              <h2 class="Projects">Date</h2>
-            </div>
+              <h2 class="Projects">Bug Tracker</h2>
+              <h2 class="Projects">PHP/SQL</h2>
+              <h2 class="Projects">2022</h2>
+            </a>
           </li>
-          <li class="project">
-            <div>
-              <span class="project__number Projects">01.</span>
-              <h2 class="Projects">Title</h2>
-              <h2 class="Projects">Tools</h2>
-              <h2 class="Projects">Date</h2>
-            </div>
-          </li>
-          <li class="project">
-            <div>
-              <span class="project__number Projects">02.</span>
-              <h2 class="Projects">Title</h2>
-              <h2 class="Projects">Tools</h2>
-              <h2 class="Projects">Date</h2>
-            </div>
-          </li>
-          <li class="project">
-            <div>
-              <span class="project__number Projects">03.</span>
-              <h2 class="Projects">Title</h2>
-              <h2 class="Projects">Tools</h2>
-              <h2 class="Projects">Date</h2>
-            </div>
-          </li>
-
-          <li class="project">
-            <div>
-              <span class="project__number Projects">04.</span>
-              <h2 class="Projects">Title</h2>
-              <h2 class="Projects">Tools</h2>
-              <h2 class="Projects">Date</h2>
-            </div>
-          </li>
+          <hr class="PjLineBF" />
         </ul>
+
+        <img src="img/projects/2023Portfolio.jpg" alt="" />
       </main>
       <p class="DateHour">GMT+2 (<strong id="Hour"></strong>, PARIS)</p>
     </div>
 
     <script src="https://unpkg.com/swup@4"></script>
-    <script>
-      function init() {
-        const textHeading = new SplitType("#textHeading");
-        gsap.to(".char", {
-          y: 0,
-          stagger: 0.05,
-          delay: 0,
-          duration: 0.5,
-        });
-        const Projects = new SplitType(".Projects");
-        gsap.to(".word", {
-          y: 0,
-          stagger: 0.05,
-          delay: 0,
-          duration: 0.5,
-        });
-      }
-
-      const swup = new Swup();
-
-      if (document.readyState === "complete") {
-        init();
-      } else {
-        document.addEventListener("DOMContentLoaded", init);
-      }
-
-      swup.hooks.on("page:view", init);
-
-      function afficherHour() {
-        let now = new Date();
-        let options = {
-          timeZone: "Europe/Paris",
-          hour: "2-digit",
-          minute: "2-digit",
-          hour12: true,
-        };
-        let hourParis = now.toLocaleTimeString("en-US", options);
-        document.getElementById("Hour").textContent = hourParis;
-      }
-      window.onload = function () {
-        afficherHour();
-        setInterval(afficherHour, 1000);
-      };
-
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("showN");
-          }
-        });
-      });
-      const ShowAnim = document.querySelectorAll(".hiddenN");
-      ShowAnim.forEach((el) => observer.observe(el));
-    </script>
+    <script src="script.js"></script>
   </body>
 </html>

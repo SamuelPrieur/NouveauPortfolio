@@ -182,7 +182,7 @@ strong {
 }
 
 .word {
-  transform: translateY(10rem);
+  transform: translateY(4rem);
   transition: transform 0.5s;
 }
 
@@ -201,7 +201,7 @@ strong {
   align-items: center;
 }
 
-.content {
+.contentHome {
   padding: 0 5rem 0 7.5rem;
   display: grid;
   grid-template-columns: 2fr 1fr;
@@ -209,22 +209,22 @@ strong {
   justify-content: center;
   align-items: center;
 }
-.content .text-and-image {
+.contentHome .text-and-image {
   display: contents;
 }
-.content .textHeading {
+.contentHome .textHeading {
   font-size: 5vmin;
   margin-right: 1rem;
   grid-column: 1/2;
   font-weight: 400;
   margin: 0;
 }
-.content .holder {
+.contentHome .holder {
   overflow: hidden;
   width: 100%;
   grid-column: 2/3;
 }
-.content .holder .portrait {
+.contentHome .holder .portrait {
   width: 100%;
   animation: fadeInScale 1s ease-in-out forwards;
   opacity: 0;
@@ -285,16 +285,28 @@ strong {
   }
 }
 
-@keyframes drawHorizontalLine {
-  0% {
-    width: 0;
-    left: 0;
-  }
-  100% {
-    width: 100%;
-    left: 0;
-  }
+.PjLineBF {
+  background-color: black;
+  margin: 0;
+  padding: 0;
+  height: 1px;
+  width: 0;
+  border: none;
+  left: 0;
 }
+
+.PjLine {
+  transition: width 0.6s ease-in-out;
+}
+
+li.project.hovered ~ hr.PjLine,
+li.project.hovered + hr.PjLine {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  left: 0;
+}
+
 .container {
   width: 100%;
   display: flex;
@@ -303,55 +315,44 @@ strong {
   align-items: center;
 }
 
-.content {
-  padding: 0 5rem 0 7.5rem;
-  justify-content: center;
-  align-items: center;
-  /*   #div1 {
-    transition-delay: 200ms;
-  }
-  #div2 {
-    transition-delay: 400ms;
-  }
-  #div3 {
-    transition-delay: 600ms;
-  } */
+.contentWork {
+  padding: 0 3rem 0 5.5rem;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  place-content: space-between;
+  gap: 8rem;
+  width: 80vw;
+  align-content: center;
 }
-.content .horizontal-line {
-  width: 0;
-  height: 1px;
-  background-color: #000;
-  border: none;
-  margin: 0.5rem 0;
-  position: relative;
-  animation: drawHorizontalLine 0.8s ease-in-out forwards;
-}
-.content #la {
-  animation-duration: 0.9s;
-}
-.content #lb {
-  animation-duration: 1s;
-}
-.content #lc {
-  animation-duration: 1.1s;
-}
-.content #ld {
-  animation-duration: 1.2s;
-}
-.content ul {
-  width: 40vw;
+.contentWork ul {
+  place-self: end;
+  width: 100%;
   list-style: none;
   padding: 0;
   margin: 0;
 }
-.content .project div {
+.contentWork .project {
+  margin: 1rem 0;
+}
+.contentWork .project a {
+  color: #000;
   display: flex;
-  padding: 1rem 0;
+  padding: 0;
+  margin: 0;
   align-items: center;
   justify-content: space-between;
+  text-decoration: none;
 }
-.content .project div h2 {
-  margin: 0 10px;
+.contentWork .project a span {
+  font-size: 2.2vmin;
+  margin: 0;
+}
+.contentWork .project a h2 {
+  margin: 0;
+  font-size: 3vmin;
+}
+.contentWork img {
+  height: 70vh;
 }
 
 .container {

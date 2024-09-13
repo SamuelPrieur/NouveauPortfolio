@@ -1,13 +1,5 @@
-@include font-face(
-  "PPNeue Montreal Light",
-  "font/PPNeueMontreal-Light.otf",
-  300
-);
-@include font-face(
-  "PPNeue Montreal Regular",
-  "font/PPNeueMontreal-Regular.otf",
-  400
-);
+@include font-face("PPNeue Montreal Light", "font/PPNeueMontreal-Light.otf", 300);
+@include font-face("PPNeue Montreal Regular", "font/PPNeueMontreal-Regular.otf", 400);
 @include font-face("PPNeue Montreal Bold", "font/PPNeueMontreal-Bold.otf", 600);
 
 body {
@@ -179,7 +171,7 @@ strong {
   clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
 }
 .word {
-  transform: translateY(10rem);
+  transform: translateY(4rem);
   transition: transform 0.5s;
 }
 

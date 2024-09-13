@@ -40,52 +40,6 @@
     </div>
 
     <script src="https://unpkg.com/swup@4"></script>
-    <script>
-      function init() {
-        const textHeading = new SplitType("#textHeading");
-        gsap.to(".word", {
-          y: 0,
-          stagger: 0.05,
-          delay: 0,
-          duration: 0.5,
-        });
-      }
-
-      const swup = new Swup();
-
-      if (document.readyState === "complete") {
-        init();
-      } else {
-        document.addEventListener("DOMContentLoaded", init);
-      }
-
-      swup.hooks.on("page:view", init);
-
-      function afficherHour() {
-        let now = new Date();
-        let options = {
-          timeZone: "Europe/Paris",
-          hour: "2-digit",
-          minute: "2-digit",
-          hour12: true,
-        };
-        let hourParis = now.toLocaleTimeString("en-US", options);
-        document.getElementById("Hour").textContent = hourParis;
-      }
-      window.onload = function () {
-        afficherHour();
-        setInterval(afficherHour, 1000);
-      };
-
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("showN");
-          }
-        });
-      });
-      const ShowAnim = document.querySelectorAll(".hiddenN");
-      ShowAnim.forEach((el) => observer.observe(el));
-    </script>
+    <script src="script.js"></script>
   </body>
 </html>
